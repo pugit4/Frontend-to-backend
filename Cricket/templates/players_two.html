@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Players two</title>
+<style>
+table, th, td {
+    border: 2px solid black;
+    padding: 4px 8px;
+    border-radius: 5px;
+    margin: 10px;
+}   
+
+th {
+    background-color: #4CAF50;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+a {
+    border-radius: 5px;
+    cursor: pointer;   
+}
+</style>
+</head>
+<body>
+
+<h2>Record List of second team Players</h2>
+
+<table style="width:50%">
+    <tr>
+        <th>firstname</th>
+        <th>lastname</th>
+        <th>talent</th>
+        <th>score</th>
+    </tr>
+    {% for t in teams %}
+    <tr>
+        <td>{{ t.firstname }}</td>
+        <td>{{ t.lastname }}</td>
+        <td>{{ t.talent }}</td>
+        <td>{{ t.score }}</td>
+        <td>
+            <a href="{% url "update2" t.pk %}" role="button">Update</a>
+            <a href="{% url "delete2" t.pk %}" role="button">Delete</a>
+        </td>    
+    </tr>
+    {% endfor %} 
+    
+    <a href="{% url "add2" %}" role="button">Add</a><br>
+    <a href="{% url "home" %}" role="button">Players</a>
+</table>
+
+</body>
+</html>

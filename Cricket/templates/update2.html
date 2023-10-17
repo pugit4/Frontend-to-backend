@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+input {
+    margin: 15px;
+    padding: 4px 8px;
+    border-radius: 5px;
+}    
+</style>
+</head>
+<body>
+
+<div>
+   <form method="POST">
+    {% csrf_token %}
+     <input  type="text" name="f_name" placeholder="Enter firstname.." style="width:150px" value="{{ players.firstname }}">
+     <br>
+     
+     <input type="text" name="l_name" placeholder="Enter lastname.." style="width:150px" value="{{ players.lastname }}">
+     <br>
+
+     <input type= "text" name="t_lent" placeholder="Enter talent.." style="width:150px" value="{{ players.talent }}">
+     <br>
+
+     <input type="number" name="s_core" placeholder="Enter Score.." style="width:150px" value="{{ players.score }}">
+     <br><br>
+
+     <button type="submit" value="submit" >Update</button>
+
+   </form>
+   <a href="{% url "home" %}" role="button">Players</a><br>
+   <a href="{% url "home_two" %}" role="button">Players_two</a>
+
+</div>
+
+</body>
+</html>
